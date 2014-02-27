@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# Author: tjw (https://github.com/tjwei/Flappy-Turtle)
+# Welcome to PyCon APAC 2014/Taiwan!
+# More info on https://tw.pycon.org/2014apac/
+
 from turtle import *
 from time import time, sleep
 from random import randint
