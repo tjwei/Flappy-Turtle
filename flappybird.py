@@ -7,9 +7,13 @@ import glob
 
 
 def play_sound(name, vol=100):
+    file_name = name + ".mp3"
+    if sys.platform == "darwin":
+        cmds = ["afplay"]
+    else:
+        cmds = ["mplayer", "-softvol", "-really-quiet", "-volume", str(vol)]
     try:
-        Popen(
-            ["mplayer", "-softvol", "-really-quiet", "-volume", str(vol), name + ".mp3"])
+        Popen(cmds + [file_name])
     except:
         pass
 
