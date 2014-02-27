@@ -45,11 +45,16 @@ def GIFTurtle(fname):
 
 score_txt = TextTurtle(0, 130, "white")
 best_txt = TextTurtle(90, 180, "white")
+pycon_apac_txt = TextTurtle(0, -270, "white")
 bgpic("bg1.gif")
 tubes = [(GIFTurtle("tube1"), GIFTurtle("tube2")) for i in range(3)]
 grounds = [GIFTurtle("ground") for i in range(3)]
 bird = GIFTurtle("bird1")
 
+PYCON_APAC_AD = """\
+     More Fun at
+PyCon APAC 2014/TW
+"""
 
 class Game:
     state = "end"
@@ -65,6 +70,7 @@ def start_game(game):
     game.tube_base = 0
     game.score = 0
     game.start_time = time()
+    pycon_apac_txt.clear()
     update_game(game)
 
 
@@ -75,6 +81,11 @@ def compute_y(t, game):
 def update_game(game):
     if game.state == "dead":
         play_sound("clickclick")
+        pycon_apac_txt.write(
+            PYCON_APAC_AD,
+            align="center",
+            font=(font_name, 24, "bold")
+        )
         sleep(2)
         game.state = "end"
         return
